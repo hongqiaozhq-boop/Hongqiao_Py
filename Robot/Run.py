@@ -12,7 +12,7 @@ qwen_agent = agent.qwen_agent()
 
 if __name__ == '__main__':
 
-    deepseek_ai_robot = deepseek_agent.invoke(HumanMessage("今天是几月几日"))
+    deepseek_ai_robot = deepseek_agent.invoke({"messages":[HumanMessage("今天是几月几号")]})
     for messages in deepseek_ai_robot["messages"]:
         messages.pretty_print()
 

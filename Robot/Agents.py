@@ -1,21 +1,19 @@
 from langchain.agents import create_agent
 from Robot.Api_key import Open_ai
-from Robot.Tools import Tools
+from Robot.Tools import bocha_browser
 
 
 class Agents:
     def __init__(self):
         open_ai = Open_ai()
-        tools = Tools()
         self.deepseek_ai = open_ai.deepseek_ai()
         self.qwen_ai = open_ai.qwen_ai()
-        self.bocha = tools.bocha_browser()
 
     def deepseek_agent(self):
         deepseeks = create_agent(
             self.deepseek_ai,
             system_prompt="你的名字叫做达尼娅,你是一名非常可爱的ai助手!",
-            tools=[self.bocha]
+            tools=[bocha_browser]
         )
         return deepseeks
 
